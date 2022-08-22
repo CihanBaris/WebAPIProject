@@ -24,8 +24,8 @@ namespace WebAPIProject.API.Controllers
         [HttpDelete("{id}")]
         public ActionResult DeleteCar(int? id)
         {
-            var car = GetCarById(id);
-            _dbContext.Remove(car);
+            var car = GetCarById(id).Value;
+            _dbContext.Cars.Remove(car);
             _dbContext.SaveChanges();
             return Ok();
         }
